@@ -420,7 +420,13 @@ int e0/3
  swi mode trunk
 
 D1 = root primary
+config t
+spanning-tree vlan 1-100 root primary
+do sh spanning-tree vlan 1
 d2 = root secondary
+config t
+spanning-tree vlan 1-100 root secondary
+do sh spanning-tree vlan 1
 
 homelab: VTP:
 d1/d2:
@@ -439,7 +445,7 @@ vtp mode Client
 vtp version 2
 exit
 
-real world FHRP:
+real world FHRP: first hop redundancy protocol
 d1:
 config t
 Track 10 Int E1/1 line-protocol
